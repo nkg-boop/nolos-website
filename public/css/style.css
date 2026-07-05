@@ -1,0 +1,742 @@
+/* ===========================================================
+   Nolos Safe Kids Care — design tokens
+   Palette derived from brand brief: dusty pink primary,
+   mint accent, warm cream neutrals, charcoal-warm ink for text.
+   =========================================================== */
+
+:root {
+  --blush: #e8a5ae;
+  --blush-deep: #b85b6b;
+  --blush-pale: #fbe8eb;
+  --mint: #7fc9a8;
+  --mint-deep: #2f6b4f;
+  --mint-pale: #e6f5ed;
+  --cream: #fbf6ee;
+  --cream-deep: #ede6d6;
+  --ink: #2e2a28;
+  --ink-soft: #6b635f;
+  --terra: #c97a4a;
+  --terra-deep: #7a4124;
+  --white: #ffffff;
+
+  --font-display: 'Quicksand', 'Poppins', system-ui, sans-serif;
+  --font-body: 'Karla', 'Open Sans', system-ui, sans-serif;
+
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 18px;
+  --radius-pill: 999px;
+
+  --shadow-card: 0 1px 3px rgba(46, 42, 40, 0.06);
+  --shadow-card-hover: 0 12px 28px -8px rgba(46, 42, 40, 0.16), 0 4px 10px -4px rgba(46, 42, 40, 0.08);
+  --shadow-button-rest: 0 1px 2px rgba(184, 91, 107, 0.15);
+  --shadow-button-hover: 0 10px 22px -6px rgba(184, 91, 107, 0.38), 0 3px 8px -2px rgba(184, 91, 107, 0.18);
+  --max-width: 1080px;
+
+  /* A single considered easing curve used everywhere something moves —
+     a gentle overshoot-free ease-out that feels deliberate rather than
+     mechanical (linear) or bouncy (spring-based). Consistency here matters
+     more than any individual curve: mixing several different easings
+     across a site is one of the fastest ways an interface reads as
+     assembled rather than designed. */
+  --ease-considered: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-quick: 0.18s;
+  --duration-base: 0.32s;
+  --duration-slow: 0.6s;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background: var(--cream);
+  color: var(--ink);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.25;
+  margin: 0 0 0.5em;
+  color: var(--ink);
+}
+
+h1 {
+  font-size: clamp(2rem, 4vw, 2.6rem);
+}
+h2 {
+  font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+}
+h3 {
+  font-size: 1.1rem;
+}
+
+p {
+  margin: 0 0 1em;
+  color: var(--ink-soft);
+}
+
+a {
+  color: var(--blush-deep);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.eyebrow {
+  display: block;
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--terra-deep);
+  margin-bottom: 0.4em;
+}
+
+.section {
+  padding: 56px 0;
+}
+
+.section--tight {
+  padding: 36px 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* ---------- Buttons ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 13px 26px;
+  border-radius: var(--radius-pill);
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+  transform: translateY(0) scale(1);
+  transition:
+    transform var(--duration-base) var(--ease-considered),
+    box-shadow var(--duration-base) var(--ease-considered),
+    background var(--duration-quick) ease-out;
+  will-change: transform;
+}
+.btn:hover {
+  text-decoration: none;
+  transform: translateY(-2px) scale(1);
+}
+.btn:active {
+  /* A slightly quicker transition on press than release — presses should
+     feel immediate, releases can afford to be a touch more leisurely.
+     This asymmetry is subtle but is part of what separates a considered
+     interaction from a mechanically identical in/out transition. */
+  transform: translateY(0) scale(0.97);
+  transition-duration: var(--duration-quick);
+}
+.btn:focus-visible {
+  outline: 2px solid var(--blush-deep);
+  outline-offset: 3px;
+}
+
+.btn--primary {
+  background: var(--blush);
+  color: var(--white);
+  box-shadow: var(--shadow-button-rest);
+}
+.btn--primary:hover {
+  background: var(--blush-deep);
+  box-shadow: var(--shadow-button-hover);
+}
+.btn--primary:active {
+  box-shadow: 0 2px 6px -2px rgba(184, 91, 107, 0.3);
+}
+
+.btn--secondary {
+  background: transparent;
+  color: var(--ink);
+  border-color: rgba(46, 42, 40, 0.2);
+}
+.btn--secondary:hover {
+  background: rgba(46, 42, 40, 0.04);
+  border-color: rgba(46, 42, 40, 0.32);
+  box-shadow: 0 8px 18px -8px rgba(46, 42, 40, 0.14);
+}
+
+.btn--mint {
+  background: var(--mint);
+  color: var(--mint-deep);
+  box-shadow: 0 1px 2px rgba(47, 107, 79, 0.15);
+}
+.btn--mint:hover {
+  background: #6bb796;
+  box-shadow: 0 10px 22px -6px rgba(47, 107, 79, 0.35), 0 3px 8px -2px rgba(47, 107, 79, 0.16);
+}
+.btn--mint:active {
+  box-shadow: 0 2px 6px -2px rgba(47, 107, 79, 0.28);
+}
+
+.btn--block {
+  width: 100%;
+  justify-content: center;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* ---------- Cards ---------- */
+
+.card {
+  background: var(--white);
+  border-radius: var(--radius-md);
+  border: 0.5px solid rgba(46, 42, 40, 0.07);
+  box-shadow: var(--shadow-card);
+  padding: 20px;
+  transition: transform var(--duration-base) var(--ease-considered), box-shadow var(--duration-base) var(--ease-considered);
+}
+
+.badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 5px 14px;
+  border-radius: var(--radius-pill);
+  background: var(--mint-pale);
+  color: var(--mint-deep);
+}
+
+/* ---------- Header / nav ---------- */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(251, 246, 238, 0.92);
+  backdrop-filter: blur(6px);
+  border-bottom: 0.5px solid rgba(46, 42, 40, 0.08);
+}
+
+.site-header__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--ink);
+}
+
+.logo__mark {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--blush);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.nav {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav a {
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+}
+
+.nav a.active,
+.nav a:hover {
+  color: var(--blush-deep);
+}
+
+.header-phone {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--blush);
+  color: var(--white);
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  font-size: 0.85rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: var(--ink);
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  text-align: center;
+  padding: 64px 0 48px;
+}
+
+.hero p {
+  max-width: 480px;
+  margin: 0 auto 28px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ---------- Service grid ---------- */
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+}
+
+.service-card {
+  background: var(--white);
+  border-radius: var(--radius-md);
+  border: 0.5px solid rgba(46, 42, 40, 0.07);
+  padding: 24px 20px;
+  text-align: center;
+  transition: transform var(--duration-base) var(--ease-considered), box-shadow var(--duration-base) var(--ease-considered), border-color var(--duration-base) var(--ease-considered);
+}
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: rgba(46, 42, 40, 0.03);
+}
+.service-card:hover .service-icon {
+  transform: scale(1.08);
+}
+
+.service-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 14px;
+  font-size: 22px;
+  transition: transform var(--duration-base) var(--ease-considered);
+}
+
+.service-icon--blush {
+  background: var(--blush-pale);
+  color: var(--blush-deep);
+}
+.service-icon--mint {
+  background: var(--mint-pale);
+  color: var(--mint-deep);
+}
+
+/* ---------- Trust trail ---------- */
+
+.trust-trail {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 40px 28px;
+}
+
+.trail-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.trail-step {
+  flex: 1;
+  text-align: center;
+  max-width: 160px;
+}
+
+.trail-circle {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 12px;
+  color: var(--white);
+  font-size: 24px;
+  transition: transform var(--duration-base) var(--ease-considered), box-shadow var(--duration-base) var(--ease-considered);
+}
+.trail-step:hover .trail-circle {
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px -4px var(--tint, rgba(46, 42, 40, 0.3));
+}
+
+.trail-step p {
+  font-size: 0.85rem;
+}
+
+.trail-step .trail-title {
+  color: var(--ink);
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.trail-connector {
+  flex: 0.4;
+  height: 2px;
+  margin-top: 27px;
+}
+
+/* ---------- Testimonials ---------- */
+
+.testimonial-card {
+  background: var(--blush-pale);
+  border-radius: var(--radius-lg);
+  padding: 32px 28px;
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto;
+  transition: transform var(--duration-base) var(--ease-considered), box-shadow var(--duration-base) var(--ease-considered);
+}
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px -12px rgba(184, 91, 107, 0.22);
+}
+
+.testimonial-card cite {
+  display: block;
+  margin-top: 14px;
+  font-style: normal;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--blush-deep);
+}
+
+/* ---------- Forms ---------- */
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.form-field {
+  margin-bottom: 16px;
+}
+
+.form-field label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+  margin-bottom: 5px;
+}
+
+.form-field input[type='text'],
+.form-field input[type='tel'],
+.form-field input[type='email'],
+.form-field textarea {
+  width: 100%;
+  padding: 11px 13px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(46, 42, 40, 0.16);
+  font-size: 0.9rem;
+  font-family: var(--font-body);
+  background: var(--cream);
+  color: var(--ink);
+  transition: border-color var(--duration-quick) ease-out, box-shadow var(--duration-quick) ease-out;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  outline: none;
+  border-color: var(--blush);
+  box-shadow: 0 0 0 3px var(--blush-pale);
+}
+
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.checkbox-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--cream);
+  border: 1px solid rgba(46, 42, 40, 0.12);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: border-color var(--duration-quick) ease-out, background var(--duration-quick) ease-out, transform var(--duration-quick) var(--ease-considered);
+}
+.checkbox-option:hover {
+  border-color: rgba(46, 42, 40, 0.24);
+  transform: translateY(-1px);
+}
+.checkbox-option:has(input:checked) {
+  border-color: var(--blush);
+  background: var(--blush-pale);
+}
+
+.checkbox-option input {
+  accent-color: var(--blush-deep);
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+
+.form-error {
+  background: #fcebeb;
+  color: #791f1f;
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  font-size: 0.85rem;
+  margin-bottom: 16px;
+  display: none;
+}
+
+.form-error.visible {
+  display: block;
+}
+
+.form-success {
+  background: var(--mint-pale);
+  color: var(--mint-deep);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  text-align: center;
+  display: none;
+}
+
+.form-success.visible {
+  display: block;
+}
+
+.trust-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 14px;
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  background: var(--ink);
+  color: var(--cream);
+  padding: 48px 0 24px;
+  margin-top: 64px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 32px;
+  margin-bottom: 28px;
+}
+
+.site-footer h3 {
+  color: var(--white);
+  font-size: 1rem;
+}
+
+.site-footer a {
+  color: rgba(251, 246, 238, 0.75);
+}
+
+.footer-contact-line {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: rgba(251, 246, 238, 0.8);
+  margin-bottom: 8px;
+}
+
+.footer-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 8px;
+}
+
+.footer-links a {
+  font-size: 0.85rem;
+}
+
+.footer-bottom {
+  border-top: 0.5px solid rgba(251, 246, 238, 0.12);
+  padding-top: 16px;
+  font-size: 0.72rem;
+  color: rgba(251, 246, 238, 0.4);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* ---------- Map embed ---------- */
+
+.map-embed {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 0.5px solid rgba(46, 42, 40, 0.1);
+  width: 100%;
+  aspect-ratio: 16 / 10;
+}
+
+.map-embed iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ---------- Skip link (accessibility) ---------- */
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  background: var(--ink);
+  color: var(--white);
+  padding: 12px 18px;
+  border-radius: var(--radius-sm);
+  z-index: 100;
+}
+
+.skip-link:focus {
+  left: 16px;
+  top: 16px;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 760px) {
+  .nav {
+    display: none;
+  }
+  .nav-toggle {
+    display: block;
+  }
+  .header-phone span {
+    display: none;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+  .form-grid,
+  .checkbox-grid {
+    grid-template-columns: 1fr;
+  }
+  .trail-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+  .trail-connector {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    transition: none !important;
+  }
+}
+
+/* ---------- Scroll reveal ---------- */
+
+/* Content is visible by default — [data-reveal] only hides it once JS
+   confirms it can animate the reveal in. This means a failed script
+   load, a very old browser, or JS disabled entirely all fail safe to
+   "content is just shown," never to "content is permanently hidden." */
+[data-reveal] {
+  opacity: 1;
+  transform: none;
+}
+
+.js-reveal-enabled [data-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity var(--duration-slow) var(--ease-considered), transform var(--duration-slow) var(--ease-considered);
+}
+
+.js-reveal-enabled [data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js-reveal-enabled [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
