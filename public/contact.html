@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Nolos Nanny Placement</title>
+  <meta name="description" content="Book a nanny consultation with Nolos Nanny Placement. WhatsApp, call, email, or send an enquiry through our form.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600&family=Karla:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/2.47.0/tabler-icons.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="/" class="logo">
+        <span class="logo__mark"><i class="ti ti-shield-heart" aria-hidden="true"></i></span>
+        Nolos Nanny Placement
+      </a>
+      <nav aria-label="Main navigation">
+        <ul class="nav">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/services.html">Services</a></li>
+          <li><a href="/testimonials.html">Testimonials</a></li>
+          <li><a href="/contact.html" class="active">Contact</a></li>
+        </ul>
+      </nav>
+      <a href="https://wa.me/27720971423?text=Nanny" class="header-phone" target="_blank" rel="noopener">
+        <i class="ti ti-brand-whatsapp" aria-hidden="true"></i>
+        <span>WhatsApp us</span>
+      </a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" id="navToggle">
+        <i class="ti ti-menu-2" aria-hidden="true"></i>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero container" style="padding-bottom: 16px;">
+      <span class="badge">Book a consultation</span>
+      <h1>Let's find your family's nanny</h1>
+      <p>Tell us a bit about what you need. We'll follow up by WhatsApp or phone, whichever's easier for you.</p>
+    </section>
+
+    <section class="section container" style="padding-top: 16px;">
+      <div class="split-grid split-grid--form">
+
+        <!-- Form -->
+        <div class="card card--form">
+          <div class="form-error" id="formError" role="alert"></div>
+
+          <form id="enquiryForm" novalidate>
+            <div class="form-grid">
+              <div class="form-field">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your full name" required>
+              </div>
+              <div class="form-field">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone" placeholder="072 000 0000" required>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="email">Email <span style="font-weight: 400; color: var(--ink-soft);">(optional)</span></label>
+              <input type="email" id="email" name="email" placeholder="name@email.com">
+            </div>
+
+            <div class="form-field">
+              <label>What care are you looking for?</label>
+              <div class="checkbox-grid">
+                <label class="checkbox-option">
+                  <input type="checkbox" name="services" value="stayIn"> Stay-in nanny
+                </label>
+                <label class="checkbox-option">
+                  <input type="checkbox" name="services" value="dayNanny"> Day nanny
+                </label>
+                <label class="checkbox-option">
+                  <input type="checkbox" name="services" value="afterSchool"> After-school care
+                </label>
+                <label class="checkbox-option">
+                  <input type="checkbox" name="services" value="sleepover"> Sleepover / weekend
+                </label>
+                <label class="checkbox-option">
+                  <input type="checkbox" name="services" value="holiday"> Holiday cover
+                </label>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="message">Tell us about your family <span style="font-weight: 400; color: var(--ink-soft);">(optional)</span></label>
+              <textarea id="message" name="message" rows="3" placeholder="Number of children, ages, and what schedule you need help with"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn--primary btn--block" id="submitBtn">
+              <span id="submitBtnText">Request consultation</span>
+            </button>
+
+            <div class="trust-line">
+              <i class="ti ti-shield-check" style="color: var(--mint-deep); font-size: 16px;" aria-hidden="true"></i>
+              All nannies ID-verified, reference-checked, and SAPS cleared
+            </div>
+          </form>
+
+          <div class="form-success" id="formSuccess">
+            <i class="ti ti-circle-check" style="font-size: 28px; color: var(--mint-deep);" aria-hidden="true"></i>
+            <h3 style="margin: 10px 0 6px;">Enquiry received</h3>
+            <p id="successMessage" style="margin: 0 0 16px;">We've saved your details. Tap below to send the same enquiry straight to our WhatsApp so we can reply faster.</p>
+            <a href="#" id="whatsappLink" class="btn btn--mint" target="_blank" rel="noopener">
+              <i class="ti ti-brand-whatsapp" aria-hidden="true"></i> Continue on WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <!-- Direct contact + map -->
+        <div>
+          <div class="card" style="margin-bottom: 16px;">
+            <h3 style="margin-bottom: 14px;">Prefer to reach us directly?</h3>
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+              <i class="ti ti-brand-whatsapp" style="color: var(--mint-deep); font-size: 18px;" aria-hidden="true"></i>
+              <div>
+                <a href="https://wa.me/27720971423?text=Nanny" target="_blank" rel="noopener">WhatsApp "Nanny" to 072 097 1423</a>
+                <div style="font-size: 0.78rem; color: var(--ink-soft); margin-top: 2px;">WhatsApp only — not a call line</div>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+              <i class="ti ti-phone" style="color: var(--blush-deep); font-size: 18px;" aria-hidden="true"></i>
+              <div>
+                <a href="tel:+27736156261">Call 073 615 6261</a>
+                <div style="font-size: 0.78rem; color: var(--ink-soft); margin-top: 2px;">Phone calls only</div>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+              <i class="ti ti-mail" style="color: var(--terra-deep); font-size: 18px;" aria-hidden="true"></i>
+              <a href="mailto:Nolossafekidscare@gmail.com">Nolossafekidscare@gmail.com</a>
+            </div>
+            <div style="display: flex; align-items: flex-start; gap: 10px;">
+              <i class="ti ti-map-pin" style="color: var(--terra-deep); font-size: 18px; margin-top: 2px;" aria-hidden="true"></i>
+              <span style="font-size: 0.9rem; color: var(--ink-soft);">8266 Winnie Mandela Park, Zone 8, Tembisa, 1632</span>
+            </div>
+          </div>
+
+          <div class="map-embed">
+            <iframe
+              title="Map showing Nolos Nanny Placement office location in Tembisa Zone 8"
+              src="https://www.google.com/maps?q=Tembisa+Zone+8,+Gauteng,+South+Africa&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="logo" style="color: #fff; margin-bottom: 12px;">
+            <span class="logo__mark"><i class="ti ti-shield-heart" aria-hidden="true"></i></span>
+            Nolos Nanny Placement
+          </div>
+          <p style="color: rgba(251, 246, 238, 0.7); font-size: 0.85rem; max-width: 280px;">Connecting Gauteng families with safe, vetted, reliable childcare.</p>
+        </div>
+        <div>
+          <h3>Quick links</h3>
+          <ul class="footer-links">
+            <li><a href="/about.html">About us</a></li>
+            <li><a href="/services.html">Services</a></li>
+            <li><a href="/testimonials.html">Testimonials</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Contact</h3>
+          <div class="footer-contact-line"><i class="ti ti-brand-whatsapp" style="color: var(--blush);" aria-hidden="true"></i> WhatsApp "Nanny" to 072 097 1423</div>
+          <div class="footer-contact-line"><i class="ti ti-phone" style="color: var(--blush);" aria-hidden="true"></i> Call 073 615 6261</div>
+          <div class="footer-contact-line"><i class="ti ti-mail" style="color: var(--blush);" aria-hidden="true"></i> Nolossafekidscare@gmail.com</div>
+          <div class="footer-contact-line"><i class="ti ti-map-pin" style="color: var(--blush);" aria-hidden="true"></i> 8266 Winnie Mandela Park, Zone 8, Tembisa, 1632</div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>Nolos Nanny Placement, a division of Nolos Safe Kids Care (Pty) Ltd · CIPC Reg. 9461359383</span>
+        <span><a href="/privacy.html">Privacy policy</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script src="/js/contact-form.js"></script>
+  <script src="/js/reveal.js"></script>
+</body>
+</html>

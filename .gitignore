@@ -1,0 +1,6 @@
+node_modules/
+.env
+data/enquiries.json
+data/enquiries.json.corrupt-*
+*.log
+.DS_Store

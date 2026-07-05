@@ -1,0 +1,22 @@
+{
+  "name": "nolos-nanny-placement",
+  "version": "2.0.0",
+  "description": "Website for Nolos Nanny Placement, a division of Nolos Safe Kids Care (Pty) Ltd, a Tembisa-based nanny agency. Deployed on Vercel using serverless functions and Upstash Redis.",
+  "scripts": {
+    "dev": "vercel dev",
+    "gen-secret": "node -e \"console.log(require('crypto').randomBytes(32).toString('hex'))\"",
+    "gen-password-hash": "node scripts/hash-password.js",
+    "audit": "npm audit --audit-level=moderate"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "@upstash/redis": "^1.38.0",
+    "@upstash/ratelimit": "^2.0.8"
+  },
+  "devDependencies": {
+    "vercel": "^37.0.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

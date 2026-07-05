@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Admin | Nolos Nanny Placement</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600&family=Karla:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tabler-icons/2.47.0/tabler-icons.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <main style="min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px;">
+
+    <!-- Login form -->
+    <div id="loginView" class="card card--login">
+      <div class="logo" style="justify-content: center; margin-bottom: 20px;">
+        <span class="logo__mark"><i class="ti ti-shield-heart" aria-hidden="true"></i></span>
+        Nolos Nanny Placement
+      </div>
+      <h2 class="text-center" style="margin-bottom: 4px;">Admin login</h2>
+      <p class="text-center" style="font-size: 0.85rem; margin-bottom: 20px;">Staff access to submitted enquiries.</p>
+
+      <div class="form-error" id="loginError" role="alert"></div>
+
+      <form id="loginForm">
+        <div class="form-field">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" autocomplete="username" required>
+        </div>
+        <div class="form-field">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" autocomplete="current-password" required>
+        </div>
+        <button type="submit" class="btn btn--primary btn--block" id="loginBtn">
+          <span id="loginBtnText">Log in</span>
+        </button>
+      </form>
+    </div>
+
+    <!-- Enquiry viewer (shown after login) -->
+    <div id="dashboardView" class="container" style="display: none; max-width: 900px; width: 100%; padding: 32px 0;">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 12px;">
+        <div>
+          <h1 style="font-size: 1.5rem; margin-bottom: 2px;">Enquiries</h1>
+          <p style="margin: 0; font-size: 0.85rem;">Submitted through the website contact form.</p>
+        </div>
+        <button class="btn btn--secondary" id="logoutBtn">
+          <i class="ti ti-logout" aria-hidden="true"></i> Log out
+        </button>
+      </div>
+
+      <div id="enquiryError" class="form-error" role="alert"></div>
+      <div id="enquiryList"></div>
+      <p id="emptyState" style="display: none; text-align: center; padding: 40px 0; color: var(--ink-soft);">No enquiries yet.</p>
+    </div>
+
+  </main>
+
+  <script src="/js/admin.js"></script>
+</body>
+</html>
