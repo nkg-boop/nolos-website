@@ -810,6 +810,14 @@ img {
   .split-grid--form,
   .split-grid--cards {
     grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .split-grid > div,
+  .split-grid--cards > div {
+    margin: 0 auto;
+  }
+  .split-grid .card {
+    margin: 0 auto;
   }
   .trail-row {
     flex-direction: column;
@@ -853,6 +861,19 @@ img {
   }
   .hero p {
     padding: 0 4px;
+  }
+
+  .split-grid,
+  .split-grid--form,
+  .split-grid--cards {
+    text-align: center;
+  }
+  .split-grid > div,
+  .split-grid--cards > div {
+    margin: 0 auto;
+  }
+  .split-grid .card {
+    margin: 0 auto;
   }
 
   h1 {
